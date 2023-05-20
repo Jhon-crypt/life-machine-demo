@@ -2,6 +2,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import Modals from '../modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Build from './build';
+//import supabase from '../../supabase/supabase';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,6 +11,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export default function StartBuild() {
+
+    //console.log(supabase)
 
 
     return (
