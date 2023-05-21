@@ -1,18 +1,12 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import Modals from '../modal';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Build from './build';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import Modals from '../modal';
+import Build from './build';
 
 export default function StartBuild() {
 
     //console.log(supabase)
-
 
     return (
 
@@ -24,52 +18,73 @@ export default function StartBuild() {
                     <div className="container px-4 mx-auto">
                         <div className="text-center">
 
-                            <Swiper
-                                // install Swiper modules
-                                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            <Carousel>
+                                <div className="">
+                                    <p className=" text-white">
+                                        <button className="btn btn-outline btn-primary btn-lg">
+                                            <label htmlFor="platform" >Select Platform</label>
+                                        </button>
+                                    </p>
+                                </div>
 
-                                slidesPerView={1}
-                                navigation
-                                pagination={{ clickable: true }}
-                                scrollbar={{ draggable: true }}
-                                onSwiper={(swiper) => console.log(swiper)}
-                                onSlideChange={() => console.log('slide change')}
-                            >
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="platform" >Select Platform</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="my-modal" >Select Cpu</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="motherboard" >Select Motherboard</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="cooler" >Select Cooler</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="memory" >Select Memory</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="storage1" >Select Storage 1</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="storage2" >Select Storage 2</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="gpu" >Select Gpu</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="psu" >Select Psu</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="bundle1" >Accessory Bundle 1</label>
-                                </button></SwiperSlide>
-                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
-                                    <label htmlFor="bundle2" >Accessory Bundle 2</label>
-                                </button></SwiperSlide>
-                                ...
-                            </Swiper>
+                                <div>
+                                    <p className="">
+                                        <button className="btn btn-outline btn-primary btn-lg">
+                                            <label htmlFor="my-modal" >Select Cpu</label>
+                                        </button>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className="">
+                                        <button className="btn btn-outline btn-primary btn-lg">
+                                            <label htmlFor="motherboard" >Select Motherboard</label>
+                                        </button>
+                                    </p>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="cooler" >Select Cooler</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="memory" >Select Memory</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="storage1" >Select Storage 1</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="storage2" >Select Storage 2</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="gpu" >Select Gpu</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="psu" >Select Psu</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="bundle1" >Accessory Bundle 1</label>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-outline btn-primary btn-lg">
+                                        <label htmlFor="bundle2" >Accessory Bundle 2</label>
+                                    </button>
+                                </div>
+
+                            </Carousel>
+
+                            
 
                         </div>
 
@@ -78,7 +93,7 @@ export default function StartBuild() {
                 </section>
 
                 <Build />
-                
+
             </div>
 
             <Modals />

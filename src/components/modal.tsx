@@ -77,6 +77,8 @@ export default function Modals() {
 
                 console.log("Platform updated")
 
+                console.log(data)
+
             }
 
 
@@ -119,6 +121,8 @@ export default function Modals() {
                 setUpdateCpuStatus(true)
 
                 console.log("Cpu updated")
+
+                console.log(data)
 
             }
 
@@ -163,6 +167,8 @@ export default function Modals() {
 
                 console.log("Motherboard updated")
 
+                console.log(data)
+
             }
 
 
@@ -205,6 +211,8 @@ export default function Modals() {
                 setUpdateCoolerStatus(true)
 
                 console.log("Cooler updated")
+
+                console.log(data)
 
             }
 
@@ -250,6 +258,8 @@ export default function Modals() {
 
                 console.log("Memory updated")
 
+                console.log(data)
+
             }
 
 
@@ -292,6 +302,8 @@ export default function Modals() {
                 seUpdateStorage1Status(true)
 
                 console.log("Storage1 updated")
+
+                console.log(data)
 
             }
 
@@ -336,6 +348,8 @@ export default function Modals() {
 
                 console.log("Storage2 updated")
 
+                console.log(data)
+
             }
 
 
@@ -379,6 +393,8 @@ export default function Modals() {
 
                 console.log("Gpu updated")
 
+                console.log(data)
+
             }
 
 
@@ -421,6 +437,8 @@ export default function Modals() {
 
                 console.log("Psu updated")
 
+                console.log(data)
+
             }
 
         } catch (error) {
@@ -462,6 +480,8 @@ export default function Modals() {
 
                 console.log("Accessory bundle1 updated")
 
+                console.log(data)
+
             }
 
         } catch (error) {
@@ -502,6 +522,8 @@ export default function Modals() {
                 setUpdateBundle2Status(true)
 
                 console.log("Accessory bundle2 updated")
+
+                console.log(data)
 
             }
 

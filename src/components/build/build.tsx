@@ -33,6 +33,8 @@ export default function Build() {
 
                     console.log(build)
 
+                    console.log(loadingBuild)
+
                 } else (
 
                     console.log(error)

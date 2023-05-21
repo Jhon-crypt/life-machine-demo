@@ -14,9 +14,7 @@
     "daisyui": "^2.51.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-loader-spinner": "^5.3.4",
-    "react-slick": "^0.29.0",
-    "react-use-localstorage": "^3.5.3",
+    "react-responsive-carousel": "^3.2.23",
     "swiper": "^9.3.2"
   },
   "devDependencies": {
@@ -24,6 +22,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-slick": "^0.23.10",
+    "@types/swiper": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
