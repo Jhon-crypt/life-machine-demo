@@ -2,7 +2,6 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import Modals from '../modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Build from './build';
-//import supabase from '../../supabase/supabase';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -36,6 +35,9 @@ export default function StartBuild() {
                                 onSwiper={(swiper) => console.log(swiper)}
                                 onSlideChange={() => console.log('slide change')}
                             >
+                                <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
+                                    <label htmlFor="platform" >Select Platform</label>
+                                </button></SwiperSlide>
                                 <SwiperSlide><button className="btn btn-outline btn-primary btn-lg">
                                     <label htmlFor="my-modal" >Select Cpu</label>
                                 </button></SwiperSlide>

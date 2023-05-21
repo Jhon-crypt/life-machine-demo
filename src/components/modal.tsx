@@ -1,7 +1,42 @@
 import { useState } from "react"
+import supabase from "../supabase/supabase";
 
 export default function Modals() {
 
+    const [loadingPlatform, setLoadingPlatform] = useState(false)
+    const [updatePlatformStatus, setUpdatPlatformStatus] = useState(false)
+
+    const [loadingCpu, setLoadingCpu] = useState(false)
+    const [updateCpuStatus, setUpdateCpuStatus] = useState(false)
+
+    const [loadingMotherboard, setLoadingMotherboard] = useState(false)
+    const [updateMotherboardStatus, setUpdateMotherboardStatus] = useState(false)
+
+    const [loadingCooler, setLoadingCooler] = useState(false)
+    const [updateCoolerStatus, setUpdateCoolerStatus] = useState(false)
+
+    const [loadingMemory, setLoadingMemory] = useState(false)
+    const [updateMemoryStatus, setUpdateMemoryStatus] = useState(false)
+
+    const [loadingStorage1, setLoadingStorage1] = useState(false)
+    const [updateStorage1Status, seUpdateStorage1Status] = useState(false)
+
+    const [loadingStorage2, setLoadingStorage2] = useState(false)
+    const [updateStorage2Status, setUpdateStorage2Status] = useState(false)
+
+    const [loadingGpu, setLoadingGpu] = useState(false)
+    const [updateGpuStatus, setUpdateGpuStatus] = useState(false)
+
+    const [loadingPsu, setLoadingPsu] = useState(false)
+    const [updatePsuStatus, setUpdatePsuStatus] = useState(false)
+
+    const [loadingBundle1, setLoadingBundle1] = useState(false)
+    const [updateBundle1Status, setUpdateBundle1Status] = useState(false)
+
+    const [loadingBundle2, setLoadingBundle2] = useState(false)
+    const [updateBundle2, setUpdateBundle2Status] = useState(false)
+
+    const [selectedPlatform, setSelectedPlatform] = useState('');
     const [selectedCpu, setSelectedCpu] = useState('');
     const [selectedMotherboard, setSelectedMotherboard] = useState('')
     const [selectedCooler, setSelectedCooler] = useState('')
@@ -13,11 +48,86 @@ export default function Modals() {
     const [selectedBundle1, setSelectedBundle1] = useState('')
     const [selectedBundle2, setSelectedBundle2] = useState('')
 
-    const updateCpu = (event: any) => {
+
+    const updatePlatform = async (event: any) => {
 
         event.preventDefault();
 
-        console.log(selectedCpu)
+        //alert(selectedPlatform)
+
+        try {
+
+            setLoadingPlatform(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedPlatform}` })
+                .eq('id', "12")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingPlatform(false)
+
+                setUpdatPlatformStatus(true)
+
+                console.log("Platform updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
+    }
+    const handlePlatformChange = (event: any) => {
+        setSelectedPlatform(event.target.value);
+    };
+    //end of platform
+
+    const updateCpu = async (event: any) => {
+
+        event.preventDefault();
+
+        //console.log(selectedCpu)
+
+        try {
+
+            setLoadingCpu(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedCpu}` })
+                .eq('id', "13")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingCpu(false)
+
+                setUpdateCpuStatus(true)
+
+                console.log("Cpu updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
 
     }
     const handleCpuChange = (event: any) => {
@@ -25,11 +135,42 @@ export default function Modals() {
     };
     //end of cpu 
 
-    const updateMotherboard = (event: any) => {
+    const updateMotherboard = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedMotherboard)
+        //alert(selectedMotherboard)
+
+        try {
+
+            setLoadingMotherboard(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedMotherboard}` })
+                .eq('id', "14")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingMotherboard(false)
+
+                setUpdateMotherboardStatus(true)
+
+                console.log("Motherboard updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
 
     }
     const handleMotherboardChange = (event: any) => {
@@ -37,11 +178,43 @@ export default function Modals() {
     };
     //end of motherboard
 
-    const updateCooler = (event: any) => {
+    const updateCooler = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedCooler)
+        //alert(selectedCooler)
+
+        try {
+
+            setLoadingCooler(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedCooler}` })
+                .eq('id', "15")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingCooler(false)
+
+                setUpdateCoolerStatus(true)
+
+                console.log("Cooler updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
 
     }
     const handleCoolerChange = (event: any) => {
@@ -49,82 +222,300 @@ export default function Modals() {
     };
     //end of cooler
 
-    const updateMemory = (event: any) => {
+    const updateMemory = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedMemory)
+        //alert(selectedMemory)
+
+        try {
+
+            setLoadingMemory(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedMemory}` })
+                .eq('id', "16")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingMemory(false)
+
+                setUpdateMemoryStatus(true)
+
+                console.log("Memory updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handleMemoryChange = (event: any) => {
         setSelectedMemory(event.target.value);
     };
     //end of memory
 
-    const updateStorage1 = (event: any) => {
+    const updateStorage1 = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedStorage1)
+        //alert(selectedStorage1)
+
+        try {
+
+            setLoadingStorage1(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedStorage1}` })
+                .eq('id', "17")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingStorage1(false)
+
+                seUpdateStorage1Status(true)
+
+                console.log("Storage1 updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handleStorage1Change = (event: any) => {
         setSelectedStorage1(event.target.value);
     };
     //end of storage1
 
-    const updateStorage2 = (event: any) => {
+    const updateStorage2 = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedStorage2)
+        //alert(selectedStorage2)
+
+        try {
+
+            setLoadingStorage2(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedStorage2}` })
+                .eq('id', "18")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingStorage2(false)
+
+                setUpdateStorage2Status(true)
+
+                console.log("Storage2 updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handleStorage2Change = (event: any) => {
         setSelectedStorage2(event.target.value);
     };
     //end of storage2
 
-    const updateGpu = (event: any) => {
+    const updateGpu = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedGpu)
+        //alert(selectedGpu)
+
+        try {
+
+            setLoadingGpu(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedGpu}` })
+                .eq('id', "19")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+
+                setLoadingGpu(false)
+
+                setUpdateGpuStatus(true)
+
+                console.log("Gpu updated")
+
+            }
+
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handleGpuChange = (event: any) => {
         setSelectedGpu(event.target.value);
     };
     //end of Gpu
 
-    const updatePsu = (event: any) => {
+    const updatePsu = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedPsu)
+        //alert(selectedPsu)
+
+        try {
+
+            setLoadingPsu(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedPsu}` })
+                .eq('id', "20")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+                setLoadingPsu(false)
+
+                setUpdatePsuStatus(true)
+
+                console.log("Psu updated")
+
+            }
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handlePsuChange = (event: any) => {
         setSelectedPsu(event.target.value);
     };
     //end of Psu
 
-    const updateBundle1 = (event: any) => {
+    const updateBundle1 = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedBundle1)
+        //alert(selectedBundle1)
+
+        try {
+
+            setLoadingBundle1(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedBundle1}` })
+                .eq('id', "21")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+                setLoadingBundle1(false)
+
+                setUpdateBundle1Status(true)
+
+                console.log("Accessory bundle1 updated")
+
+            }
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handleBundle1Change = (event: any) => {
         setSelectedBundle1(event.target.value);
     };
     //end of bundle one
 
-    const updateBundle2 = (event: any) => {
+    const updateBundlee = async (event: any) => {
 
         event.preventDefault();
 
-        alert(selectedBundle2)
+        //alert(selectedBundle2)
+
+        try {
+
+            setLoadingBundle2(true)
+
+            const { data, error } = await supabase
+                .from('components')
+                .update({ component_name: `${selectedBundle2}` })
+                .eq('id', "22")
+
+            if (error) {
+
+                console.log(error)
+
+            } else {
+
+                setLoadingBundle2(false)
+
+                setUpdateBundle2Status(true)
+
+                console.log("Accessory bundle2 updated")
+
+            }
+
+        } catch (error) {
+
+            console.log(error)
+
+        }
+
     }
     const handleBundle2Change = (event: any) => {
         setSelectedBundle2(event.target.value);
     };
-    //end of bundle one
+    //end of bundle two
 
 
     return (
@@ -132,10 +523,152 @@ export default function Modals() {
         <>
 
             {/* Put this part before </body> tag */}
+            <input type="checkbox" id="platform" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg mb-3">Platform</h3>
+
+                    {loadingPlatform ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updatePlatformStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Platform to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
+
+
+
+                    <form onSubmit={updatePlatform}>
+
+                        <div className="bg-white rounded-lg border border-gray-200 text-gray-900 text-sm font-medium w-full">
+
+
+                            <div className="form-control">
+                                <label className="label cursor-pointer">
+                                    <span className=" text-dark">Intel</span>
+                                    <input
+                                        type="radio"
+                                        name="cpu"
+                                        value="intel"
+                                        className="radio checked:bg-primary"
+                                        checked={selectedPlatform === 'intel'}
+                                        onChange={handlePlatformChange}
+                                    />
+                                </label>
+                            </div>
+                            <hr />
+                            <div className="form-control">
+                                <label className="label cursor-pointer">
+                                    <span className="text-dark">Amd</span>
+                                    <input
+                                        type="radio"
+                                        name="cpu"
+                                        value="amd"
+                                        className="radio checked:bg-primary"
+                                        checked={selectedPlatform === 'amd'}
+                                        onChange={handlePlatformChange}
+                                    />
+                                </label>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div className="text-center mt-5">
+                            <button className="btn btn-primary w-full text-white text-xl" type="submit">
+                                <b>Save</b>
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <div className="modal-action">
+                        <label htmlFor="platform" className="btn">Close</label>
+                    </div>
+                </div>
+            </div>
+
+            {/* Put this part before </body> tag */}
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Cpu</h3>
+
+                    {loadingCpu ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateCpuStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Cpu to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
 
                     <form onSubmit={updateCpu}>
 
@@ -195,6 +728,47 @@ export default function Modals() {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Motherboard</h3>
 
+                    {loadingMotherboard ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateMotherboardStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Motherboard to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
+
                     <form onSubmit={updateMotherboard}>
 
                         <div className="bg-white rounded-lg border border-gray-200 text-gray-900 text-sm font-medium w-full">
@@ -246,6 +820,47 @@ export default function Modals() {
             <div className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Cooler</h3>
+
+                    {loadingCooler ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateCoolerStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Cooler to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
 
                     <form onSubmit={updateCooler}>
 
@@ -299,6 +914,47 @@ export default function Modals() {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Memory</h3>
 
+                    {loadingMemory ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateMemoryStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Memory to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
+
                     <form onSubmit={updateMemory}>
 
                         <div className="bg-white rounded-lg border border-gray-200 text-gray-900 text-sm font-medium w-full">
@@ -350,6 +1006,47 @@ export default function Modals() {
             <div className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Storage 1</h3>
+
+                    {loadingStorage1 ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateStorage1Status ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Storage1 to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
 
                     <form onSubmit={updateStorage1}>
 
@@ -403,6 +1100,47 @@ export default function Modals() {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Storage 2</h3>
 
+                    {loadingStorage2 ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateStorage2Status ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Storage2 to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
+
                     <form onSubmit={updateStorage2}>
 
                         <div className="bg-white rounded-lg border border-gray-200 text-gray-900 text-sm font-medium w-full">
@@ -454,6 +1192,47 @@ export default function Modals() {
             <div className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Gpu</h3>
+
+                    {loadingGpu ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateGpuStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Gpu to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
 
                     <form onSubmit={updateGpu}>
 
@@ -508,6 +1287,47 @@ export default function Modals() {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Psu</h3>
 
+                    {loadingPsu ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updatePsuStatus ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Psu to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
+
                     <form onSubmit={updatePsu}>
 
                         <div className="bg-white rounded-lg border border-gray-200 text-gray-900 text-sm font-medium w-full">
@@ -559,6 +1379,47 @@ export default function Modals() {
             <div className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Accessory Bundle 1</h3>
+
+                    {loadingBundle1 ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateBundle1Status ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Accessory Bundle 1 to build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
 
                     <form onSubmit={updateBundle1}>
 
@@ -613,7 +1474,55 @@ export default function Modals() {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg mb-3">Accessory Bundle 2</h3>
 
-                    <form onSubmit={updateBundle2}>
+                    {loadingBundle2 ?
+
+                        (
+                            <>
+                                <div className="text-center mt-3 mb-3">
+                                    <div className="alert alert-info">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span>Adding To Build.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {updateBundle2 ?
+
+                                    (
+                                        <>
+
+                                            <div className="alert alert-success shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                    <span>Successfully Added Accessory Bundle 2 to build.</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="alert alert-info shadow-lg mt-3 mb-3">
+                                                <div>
+                                                    
+                                                    <span>Now reload and scroll down to view your build.</span>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                    ) : (
+
+                                        <></>
+
+                                    )
+
+                                }
+
+                            </>
+                        )
+
+                    }
+
+                    <form onSubmit={updateBundlee}>
 
                         <div className="bg-white rounded-lg border border-gray-200 text-gray-900 text-sm font-medium w-full">
                             <div className="form-control">
